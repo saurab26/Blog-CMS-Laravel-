@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 use App\Category;
+use App\User;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -32,6 +33,20 @@ class BlogController extends Controller
                           ->paginate($this->limit); 
         return view('blog.index',compact('posts','categoryName'));
     }
+
+    public function author(User $author)
+    {
+        $authorName = $author->name;
+       
+
+        $posts = $author->posts()
+                          ->with('category')
+                          ->latestFirst()
+                          ->published()
+                          ->paginate($this->limit); 
+        return view('blog.index',compact('posts','authorName'));
+    }
+
     public function show(Post $post)
     {
         return view('blog.show',compact('post'));
