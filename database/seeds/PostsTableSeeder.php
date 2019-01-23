@@ -14,7 +14,7 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         //reset the posts table
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        
         DB::table('posts')->truncate();
 
         // generate 10 dummy posts data
