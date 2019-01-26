@@ -30,7 +30,8 @@
 
                 {!! Form::model($post,[
                     'method'=>'POST',
-                    'route'=>'blog.store'
+                    'route'=>'blog.store',
+                    'files'=>TRUE
 
                 ])!!}  
 
@@ -83,6 +84,15 @@
                           <span class="help-block">{{$errors->first('published_at')}}</span>
                         @endif
 
+                   </div>
+
+                   <div class="form-group  {{$errors->has('image') ? 'has-error' : ''}}">
+                        {!! Form::label('image','Feature Image')!!}
+                        {!! Form::file('image')!!}
+
+                        @if($errors->has('image'))
+                          <span class="help-block">{{$errors->first('image')}}</span>
+                        @endif
                    </div>
 
                    <div class="form-group  {{$errors->has('category_id') ? 'has-error' : ''}}">
