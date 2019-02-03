@@ -72,7 +72,7 @@ class Post extends Model
     public function dateFormatted($showTimes = false)
     {
         $format ="d/m/Y";
-        if($showTimes) $format =$format ."H:i:s";
+        if($showTimes) $format = $format ." H:i:s";
         return $this->created_at->format($format);
     }
 
@@ -102,6 +102,6 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->where("published_at",">=",Carbon::now());
+        return $query->where("published_at","<=",Carbon::now());
     }
 }
