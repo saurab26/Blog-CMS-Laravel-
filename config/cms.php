@@ -1,11 +1,11 @@
 <?php
-
 return [
-    'image'=>[
-        'directory'=>'assets/img',
-        'thumbnail'=>[
-            'width'=>250,
-            'height'=>170
+    'image' => [
+        'directory' => 'img',
+        'thumbnail' => [
+            'width' => 250,
+            'height' => 170
         ]
-    ]
+    ],
+    'default_category_id' => 6,
 ];
