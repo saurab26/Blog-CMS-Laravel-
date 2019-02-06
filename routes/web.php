@@ -36,6 +36,8 @@ Route::get('/author/{author}',[
 Auth::routes();
 
 Route::get('/home', 'Backend\HomeController@index')->name('home');
+Route::get('/edit-profile','Backend\HomeController@edit')->name('profile');
+Route::put('/edit-profile','Backend\HomeController@update');
 
 Route::put('/backend/blog/restore/{blog}',[
     'uses'=>'Backend\BlogController@restore',

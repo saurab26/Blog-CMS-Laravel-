@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Permission;
+use App\Role;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -13,8 +14,9 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        // crud post
+        DB::table('permissions')->truncate();
 
+        // crud post
         $crudPost = new Permission();
         $crudPost->name = "crud-post";
         $crudPost->save();
@@ -36,6 +38,27 @@ class PermissionsTableSeeder extends Seeder
         $crudCategory = new Permission();
         $crudCategory->name = "crud-category";
         $crudCategory->save();
+
+        // crud user
+
+        $crudUser = new Permission();
+        $crudUser->name = "crud-user";
+        $crudUser->save();
+
+        // attach  roles permissions
+
+        $admin = Role::whereName('admin')->first();
+        $editor = Role::whereName('editor')->first();
+        $author = Role::whereName('author')->first();
+        
+        $admin->detachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory, $crudUser]);
+        $admin->attachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory, $crudUser]);
+        
+        $editor->detachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory]);
+        $editor->attachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory]);
+        
+        $author->detachPermissions([$crudPost]);
+        $author->attachPermissions([$crudPost]);
 
     }
 }
