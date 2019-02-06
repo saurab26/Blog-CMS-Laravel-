@@ -28,8 +28,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('blog.index')}}"><i class="fa fa-circle-o"></i> All Posts</a></li>
-            <li><a href="{{route('blog.create')}}"><i class="fa fa-circle-o"></i> Add New</a></li>
+            <li><a href="{{route('backend.blog.index')}}"><i class="fa fa-circle-o"></i> All Posts</a></li>
+            <li><a href="{{route('backend.blog.create')}}"><i class="fa fa-circle-o"></i> Add New</a></li>
           </ul>
         </li>
         @if(check_user_permissions(request(),"Categories@index"))

@@ -1,4 +1,27 @@
 @extends('layouts.main')
+
+    @section('meta_content')
+
+    <meta property="og:url"           content="{{URL::current()}}" />
+    <meta property="og:type"          content="article" />
+    <meta property="og:title"         content="{{$post->title}}" />
+    <meta property="og:description"   content="" />    
+     
+    <meta property="og:image" content="{{$post->image_url}}">
+    <meta property="og:image:secure_url" content="{{$post->image_url}}">
+    <meta name="twitter:image" content="{{$post->image_url}}">
+
+    
+    
+    
+    <!-- <meta property="og:site_name" content="{{ env('APP_NAME') }}" /> -->
+    <meta name="twitter:description"   content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{$post->title}}" />
+
+    @endsection
+
+
     @section('content')
         <div class="container">
             <div class="row">
