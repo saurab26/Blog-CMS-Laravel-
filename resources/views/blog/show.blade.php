@@ -45,6 +45,8 @@
                                 </ul>
                             </div>
 
+                            <div class="sharethis-inline-share-buttons"></div></br>
+
                             {!! $post->body_html !!}
                         </div>
                     </div>

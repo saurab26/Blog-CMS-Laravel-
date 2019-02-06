@@ -11,6 +11,7 @@
 
     @yield('meta_content')
 </head>
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=598416459bfbf80011bda358&product=inline-share-buttons"></script>
 <body>
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -44,15 +45,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class="copyright">&copy; 2016 Edo Masaru</p>
+                    <p class="copyright">&copy; 2019 Saurab Karmacharya</p>
                 </div>
                 <div class="col-md-4">
                     <nav>
                         <ul class="social-icons">
-                            <li><a href="#" class="i fa fa-facebook"></a></li>
-                            <li><a href="#" class="i fa fa-twitter"></a></li>
-                            <li><a href="#" class="i fa fa-google-plus"></a></li>
-                            <li><a href="#" class="i fa fa-github"></a></li>
+                            <li><a href="https://facebook.com" class="i fa fa-facebook"></a></li>
+                            <li><a href="http://twitter.com" class="i fa fa-twitter"></a></li>
+                            <li><a href="http://googleplus.com" class="i fa fa-google-plus"></a></li>
+                            <li><a href="https://github.com" class="i fa fa-github"></a></li>
                         </ul>
                     </nav>
                 </div>
