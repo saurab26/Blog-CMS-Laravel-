@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    protected $limit = 3;
+    protected $limit = 4;
     public function index()
     {
         
@@ -17,8 +17,8 @@ class BlogController extends Controller
         $posts = Post::with('author','tags','category')
                         ->latestFirst()
                         ->published()
-                        ->filter(request('term'))
-                        ->paginate($this->limit);
+                        ->filter(request()->only(['term','month','year']))
+                        ->simplePaginate($this->limit);
             
                             
         return view('blog.index',compact('posts'));

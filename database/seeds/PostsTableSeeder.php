@@ -17,16 +17,16 @@ class PostsTableSeeder extends Seeder
         
         DB::table('posts')->truncate();
 
-        // generate 10 dummy posts data
+        // generate 36 dummy posts data
 
         $posts = [];
         $faker = Factory::create();
-        $date =Carbon::create(2019,1,22,9);
+        $date =Carbon::now()->modify('-1 year');
 
-        for ($i = 1 ;$i <= 10 ; $i++)
+        for ($i = 1 ;$i <= 36 ; $i++)
         {
             $image = "Post_image_". rand(1,5).".jpg";
-            $date->addDays(1);
+            $date->addDays(10);
             $publishedDate = clone($date);
             $createdDate = clone($date);
 
@@ -39,7 +39,7 @@ class PostsTableSeeder extends Seeder
                 'image'=>rand(0,1) == 1 ? $image : NULL,
                 'created_at'=> $createdDate,
                 'updated_at'=> $createdDate,
-                'published_at'=> $i < 5 ? $publishedDate : (rand(0,1)==0 ? NULL : $publishedDate->addDays(4)),
+                'published_at'=> $i < 30 ? $publishedDate : (rand(0,1)==0 ? NULL : $publishedDate->addDays(4)),
                 'view_count'=> rand(1,10) * 10
             ];
         }
