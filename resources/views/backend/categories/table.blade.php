@@ -16,7 +16,7 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     @if($category->id == config('cms.default_category_id'))
-                                    <button onclick="return false" type="submit" class="btn btn-xs btn-danger disabled">
+                                    <button onclick="return false" type="submit" class="btn btn-xs btn-light disabled">
                                         <i class="fa fa-times"></i>
                                     </button>
                                     @else

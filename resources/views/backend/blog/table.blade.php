@@ -29,7 +29,7 @@
                                             <i class="fa fa-trash"></i>
                                         </button> 
                                     @else
-                                        <button type="button" onclick="return false;" class="btn btn-xs btn-danger disabled">
+                                        <button type="button" onclick="return false;" class="btn btn-xs btn-light disabled">
                                             <i class="fa fa-trash"></i>
                                         </button> 
                                     @endif 

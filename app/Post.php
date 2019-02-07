@@ -33,6 +33,17 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function commentsNumber($label = 'Comment')
+    {
+        $commentsNumber = $this->comments->count();
+        return $commentsNumber . " " . str_plural($label , $commentsNumber);
+    }
+
     public function setPusblishedAtAttribute($value)
     {
         $this->attributes['published_at'] = $value ?: NULL;

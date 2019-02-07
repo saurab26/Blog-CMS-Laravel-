@@ -14,7 +14,7 @@ class BlogController extends Controller
     {
         
 
-        $posts = Post::with('author','tags','category')
+        $posts = Post::with('author','tags','category','comments')
                         ->latestFirst()
                         ->published()
                         ->filter(request()->only(['term','month','year']))
@@ -29,7 +29,7 @@ class BlogController extends Controller
        
 
         $posts = $category->posts()
-                          ->with('author','tags')
+                          ->with('author','tags','comments')
                           ->latestFirst()
                           ->published()
                           ->paginate($this->limit); 
@@ -42,7 +42,7 @@ class BlogController extends Controller
        
 
         $posts = $tag->posts()
-                          ->with('author','category')
+                          ->with('author','category','comments')
                           ->latestFirst()
                           ->published()
                           ->paginate($this->limit); 
@@ -55,7 +55,7 @@ class BlogController extends Controller
        
 
         $posts = $author->posts()
-                          ->with('category','tags')
+                          ->with('category','tags','comments')
                           ->latestFirst()
                           ->published()
                           ->paginate($this->limit); 
