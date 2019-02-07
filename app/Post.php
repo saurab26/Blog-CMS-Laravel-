@@ -33,6 +33,27 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
+    public function createTags($tagString)
+    {
+        $tags = explode(",", $tagString);
+        $tagIds = [];
+ 
+        foreach ($tags as $tag) 
+        {        
+            $newTag = new Tag();
+            $newTag = Tag::firstOrCreate([
+                'slug' => str_slug($tag),
+                'name' => ucwords(trim($tag)
+            )]);
+            $newTag->save();  
+    
+            $tagIds[] = $newTag->id;
+        }
+           $this->tags()->sync($tagIds);
+        // $this->tags()->detach();
+        // $this->tags()->attach($tagIds);
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -105,6 +126,11 @@ class Post extends Model
             $anchors[] = '<a href="' . route('tag', $tag->slug) . '">'. $tag->name .'</a>';
         }
         return implode(",",$anchors);
+    }
+
+    public function getTagsListAttribute()
+    {
+        return $this->tags->pluck('name');
     }
 
     public function dateFormatted($showTimes = false)

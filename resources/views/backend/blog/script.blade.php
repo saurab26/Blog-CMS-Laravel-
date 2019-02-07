@@ -1,32 +1,54 @@
+@section('style')
+    <link rel="stylesheet" href="/backend/plugins/tag-editor/jquery.tag-editor.css">
+@endsection
+
 @section('script')
+    <script src="/backend/plugins/tag-editor/jquery.caret.min.js"></script>
+    <script src="/backend/plugins/tag-editor/jquery.tag-editor.min.js"></script>
     <script type="text/javascript">
-    $('ul.pagination').addClass('no-margin pagination-sm');
+        $('input[name=post_tags]').tagEditor(options);
+        var options = {};
+ 
+            @if($post->exists)
+                options = {
+                    initialTags: {!! $post->tags_list !!},
+                };
+            @endif
 
-          $('#title').on('blur',function(){
-              var theTitle = this.value.toLowerCase().trim(),
-                  slugInput = $('#slug'),
-                  theSlug = theTitle.replace(/&/g,'-and-')
-                                    .replace(/[^a-z0-9]+/g,'-')
-                                    .replace(/\-\-+/g,'-')
-                                    .replace(/^-+|-+$/g,'');
-                                    
+        
+        
+        $('ul.pagination').addClass('no-margin pagination-sm');
 
-                  slugInput.val(theSlug);
-          });  
+            $('#title').on('blur',function(){
+                var theTitle = this.value.toLowerCase().trim(),
+                    slugInput = $('#slug'),
+                    theSlug = theTitle.replace(/&/g,'-and-')
+                                        .replace(/[^a-z0-9]+/g,'-')
+                                        .replace(/\-\-+/g,'-')
+                                        .replace(/^-+|-+$/g,'');
+                                        
 
-          var simplemde1 = new SimpleMDE({ element: $("#excerpt")[0] });
-          var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
+                    slugInput.val(theSlug);
+            });  
 
-          $('#datetimepicker1').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            showClear: true
-        });
+            var simplemde1 = new SimpleMDE({ element: $("#excerpt")[0] });
+            var simplemde2 = new SimpleMDE({ element: $("#body")[0] });
 
-        $('#draft-btn').click(function(e) {
-            e.preventDefault();
-            $('#published_at').val("");
-            $('#post-form').submit();
-        });
+            $('#datetimepicker1').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm:ss',
+                showClear: true
+            });
+
+            $('#draft-btn').click(function(e) {
+                e.preventDefault();
+                $('#published_at').val("");
+                $('#post-form').submit();
+            });
     </script>
 
 @endsection
+
+@section('style')
+    <link rel="stylesheet" href="/backend/plugins/tag-editor/jquery.tag-editor.css">
+@endsection
+ 
