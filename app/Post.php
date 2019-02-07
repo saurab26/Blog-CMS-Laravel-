@@ -44,6 +44,11 @@ class Post extends Model
         return $commentsNumber . " " . str_plural($label , $commentsNumber);
     }
 
+    public function createComment(array $data)
+    {
+        $this->comments()->create($data);
+    }
+
     public function setPusblishedAtAttribute($value)
     {
         $this->attributes['published_at'] = $value ?: NULL;
