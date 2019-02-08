@@ -48,7 +48,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 5.5
     </div>
-    <strong>Copyright &copy; 2018-2019 <a href="http://almsaeedstudio.com">Nepal Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2018-2019 <a href="http://nepalstudio.com">Nepal Studio</a>.</strong> All rights
     reserved.
   </footer>
 

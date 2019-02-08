@@ -53,7 +53,7 @@ class CategoriesTableSeeder extends Seeder
             $categories = Category::pluck('id');
         foreach (Post::pluck('id') as $postId)
         {
-            $categoryId = $categories[rand(0,$categories->count()-1)];
+            $categoryId = $categories[rand(0, $categories->count()-1)];
 
             DB::table('posts')
                 ->where('id', $postId)
