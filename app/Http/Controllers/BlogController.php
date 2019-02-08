@@ -18,7 +18,7 @@ class BlogController extends Controller
                         ->latestFirst()
                         ->published()
                         ->filter(request()->only(['term','month','year']))
-                        ->simplePaginate($this->limit);
+                        ->paginate($this->limit);
             
                             
         return view('blog.index',compact('posts'));

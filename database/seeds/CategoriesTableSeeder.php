@@ -14,29 +14,40 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         
-        DB::table('categories')->truncate();
-        DB::table('categories')->insert([
-            [
-                'title'=>'Uncategorized',
-                'slug'=>'uncategorized'
-            ],
-            [
-                'title'=>'Tips and Tricks',
-                'slug'=>'tips-and-tricks'
-            ],
-            [
-                'title'=>'Build Apps',
-                'slug'=>'build-apps'
-            ],
-            [
-                'title'=>'News',
-                'slug'=>'news'
-            ],
-            [
-                'title'=>'Freebies',
-                'slug'=>'freebies'
-            ],
-        ]);
+        DB::table('categories')->delete();
+        if(env('APP_ENV') === 'local')
+        {
+            DB::table('categories')->insert([
+                [
+                    'title'=>'Uncategorized',
+                    'slug'=>'uncategorized'
+                ],
+                [
+                    'title'=>'Tips and Tricks',
+                    'slug'=>'tips-and-tricks'
+                ],
+                [
+                    'title'=>'Build Apps',
+                    'slug'=>'build-apps'
+                ],
+                [
+                    'title'=>'News',
+                    'slug'=>'news'
+                ],
+                [
+                    'title'=>'Freebies',
+                    'slug'=>'freebies'
+                ],
+            ]);
+        }
+        else
+        {
+            DB::table('categories')->insert([
+                
+                    'title'=>'Uncategorized',
+                    'slug'=>'uncategorized'
+                ]);
+        }
 
         //update the posts data
             $categories = Category::pluck('id');
