@@ -10,7 +10,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 class Post extends Model
 {
     use SoftDeletes;
-    protected $fillable =['title','slug','excerpt','body','published_at','category_id','image'];
+    protected $fillable =['title','slug','excerpt','body','published_at','category_id','tags','image'];
     protected $dates = ['published_at'];
 
     public function author()

@@ -6,7 +6,7 @@
     <script src="/backend/plugins/tag-editor/jquery.caret.min.js"></script>
     <script src="/backend/plugins/tag-editor/jquery.tag-editor.min.js"></script>
     <script type="text/javascript">
-        $('input[name=post_tags]').tagEditor(options);
+        
         var options = {};
  
             @if($post->exists)
@@ -15,7 +15,7 @@
                 };
             @endif
 
-        
+            $('input[name=post_tags]').tagEditor(options);
         
         $('ul.pagination').addClass('no-margin pagination-sm');
 
@@ -48,7 +48,3 @@
 
 @endsection
 
-@section('style')
-    <link rel="stylesheet" href="/backend/plugins/tag-editor/jquery.tag-editor.css">
-@endsection
- 

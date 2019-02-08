@@ -26,16 +26,11 @@
                    <div class="form-group excerpt">
                         {!! Form::label('excerpt')!!}
                         {!! Form::textarea('excerpt',null,['class'=>'form-control'])!!}
-
-                        @if($errors->has('excerpt'))
-                          <span class="help-block">{{$errors->first('excerpt')}}</span>
-                        @endif
-
                    </div>
 
                    <div class="form-group {{$errors->has('body') ? 'has-error' : ''}}">
                         {!! Form::label('body')!!}
-                        {!! Form::textarea('body',null,['class'=>'form-control'])!!}
+                        {!! Form::textarea('body',null,['class' => 'form-control'])!!}
 
                         @if($errors->has('body'))
                           <span class="help-block">{{$errors->first('body')}}</span>
