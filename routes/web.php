@@ -12,7 +12,7 @@
 */
 
 Route::get('/', [
-    'uses'=> 'Blogcontroller@index',
+    'uses'=> 'BlogController@index',
     'as'=>'blog'
 ]);
     
