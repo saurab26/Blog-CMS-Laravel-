@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory;
-use App\Contact;
+
 
 class ContactsTableSeeder extends Seeder
 {
@@ -13,6 +13,9 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
+        // reset the contacts table
+        DB::table('contacts')->delete();
+
         $faker = Factory::create();
         $contacts = [];
                 $contacts[] =[
@@ -21,12 +24,12 @@ class ContactsTableSeeder extends Seeder
                     'address'=> $faker->domainName,
                     'phone'=>$faker->tollFreePhoneNumber,
                     'body'=> $faker->paragraphs(rand(1,5), true),
-                    'created_at'=> $commentDate,
-                    'updated_at'=> $commentDate,
+                    'created_at'=> $createdDate,
+                    'updated_at'=> $createdDate,
                 ];
            
         
-    //    Comment::delete();
+    
        Contact::insert($contacts); 
     }
 }
