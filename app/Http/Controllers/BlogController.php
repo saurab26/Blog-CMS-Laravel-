@@ -70,4 +70,14 @@ class BlogController extends Controller
 
         return view('blog.show',compact('post','postComments'));
     }
+    
+    public function about()
+    {
+        return view('blog.about');
+    }
+
+    public function contact()
+    {
+        return view('blog.contacts');
+    }
 }

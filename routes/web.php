@@ -27,6 +27,13 @@ Route::post('/blog/{post}/comments', [
     'as'=>'blog.comments'
 ]);
 
+Route::get('/about','BlogController@about')->name('about');
+Route::get('/contact','BlogController@contact')->name('contact');
+Route::post('/contact', [
+    'uses'=>'ContactController@store',
+    'as'=>'contactPost'
+]);
+
 Route::get('/category/{category}',[
     'uses'=>'BlogController@category',
     'as'=>'category'
